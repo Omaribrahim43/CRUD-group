@@ -3,7 +3,6 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +17,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [ViewController::class, 'index']);
 
-Route::get('/create', [PostController::class, 'index'])->name('create.view');
-Route::post('/create/submit', [PostController::class, 'create'])->name('create.submit');
+Route::get('/create', function() {
+    return view('create');
+});
+Route::post('/create', [PostController::class, 'create'])->name('create.submit');

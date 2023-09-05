@@ -17,7 +17,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-primary float-right mb-3" href="{{ route('create.view') }}">+ Create </a>
+                    <a class="btn btn-primary float-right mb-3" href="/create">+ Create </a>
                     <table class="table container">
                         <thead>
                             <tr>

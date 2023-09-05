@@ -30,7 +30,7 @@ class PostController extends Controller
         $new->text = $request->text ;
         $new->save();
 
-        return redirect("view");
+        return redirect("/");
     }
 
     /**
