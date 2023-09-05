@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,7 @@ Route::get('/', function () {
 Route::get('/view', function () {
     return view('view');
 });
-
+Route::get('/create', function () {
+    return view('create');
+});
+Route::post('/create', [PostController::class, 'create']);
