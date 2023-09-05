@@ -17,7 +17,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-primary float-right mb-3" href="/">+ Create </a>
+                    <a class="btn btn-primary float-right mb-3" href="/create">+ Create </a>
                     <table class="table container">
                         <thead>
                             <tr>
@@ -28,15 +28,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><a class="btn btn-danger mr-3" href="">delete</a><a class="btn btn-primary"
-                                        href="">update</a></td>
-                            </tr>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->text }}</td>
+                                    <td><a class="btn btn-danger mr-3" href="">delete</a><a
+                                            class="btn btn-primary" href="">update</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
 

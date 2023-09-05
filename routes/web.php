@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/view', function () {
-    return view('view');
-});
+Route::get('/', [ViewController::class, 'index']);
 
-Route::get('/update', function () {
-    return view('update');
+Route::get('/create', function() {
+    return view('create');
 });
-
+Route::post('/create', [PostController::class, 'create'])->name('create.submit');

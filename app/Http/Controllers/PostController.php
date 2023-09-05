@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-
+use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -23,9 +23,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $new = new Post;
+        $new->title = $request->title ;
+        $new->text = $request->text ;
+        $new->save();
+
+        return redirect("/");
     }
 
     /**
