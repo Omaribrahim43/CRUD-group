@@ -20,4 +20,10 @@ Route::get('/', [ViewController::class, 'index']);
 Route::get('/create', function() {
     return view('create');
 });
+
 Route::post('/create', [PostController::class, 'create'])->name('create.submit');
+
+Route::get('/update/{id}', [PostController::class, 'update'])->name('update.view');
+Route::post('/update', [PostController::class, 'updateData'])->name('update.submit');
+
+Route::get('/delete/{id}', [PostController::class, 'destroy'])->name('delete');

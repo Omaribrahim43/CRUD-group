@@ -33,8 +33,8 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->text }}</td>
-                                    <td><a class="btn btn-danger mr-3" href="">delete</a><a
-                                            class="btn btn-primary" href="">update</a></td>
+                                    <td><a class="btn btn-danger mr-3" href="/delete/{{ $item->id }}">delete</a><a
+                                            class="btn btn-primary" href="/update/{{ $item->id }}">update</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

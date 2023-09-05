@@ -73,9 +73,20 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update($id)
     {
-        //
+        $post = Post::where("id", $id)->first();
+        return view('update', compact('post'));
+    }
+
+    public function updateData(Request $request){
+        $id = $request->id;
+        $post = Post::where("id", $id)->first();
+        $post->title = $request->title;
+        $post->text = $request->text;
+        $post->save();
+
+        return redirect('/');
     }
 
     /**
@@ -84,8 +95,12 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post, $id)
     {
-        //
+        $post = Post::where("id", $id)->delete();
+        
+        // $post->();
+
+        return redirect('/');
     }
 }
